@@ -10,3 +10,8 @@ print("3. Student Grade Input")
 print("4. CGPA Calculation")
 print("5. View Student Grades")
 print("6. Exit\n\n-----------------------------------------")
+
+
+selected_menu = int(input("Choose a menu: "))
+if selected_menu == 1:
+    # new_student.enroll_student()
