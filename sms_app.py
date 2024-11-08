@@ -31,7 +31,8 @@ while True:
             mange_students.view_student_by_id()
         elif option_selected == 2:
             mange_students.view_students()
-
+        elif option_selected == 3:
+            mange_students.modify_student_record()
     if selected_menu == 6:
         exit_option = input("are you sure you want to exit (yes/no): ").lower()
         sys.exit() if exit_option == "yes" else ""
