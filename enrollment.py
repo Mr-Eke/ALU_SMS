@@ -14,7 +14,4 @@ class StudentEnrollment:
     # except ValueError:
         intake = input("Enter your intake (e.g 2024M for May 2024 intake): ")
         trimester = input("Enter your trimester (e.g T2 for trimester 2): ")
-        id = Student.generate_id()
 
-        self.students[id] = Student(id, full_name, intake, trimester)
-        print(f"\n---- {fs_name} with ID: {id} is successfully enrolled! ----")
