@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import random
 """
 This module defines the Student class used for managing student
 information in a school management system.
@@ -24,6 +25,10 @@ class Student:
         self.intake = intake
         self.trimester = trimester
 
+    @staticmethod
+    def generate_id():
+        return random.randint(1000, 9999)
+    
     def __str__(self):
         """
         Returns a string representation of the student's information.
@@ -35,3 +40,4 @@ class Student:
             f"ID: {self.student_id}, Name: {self.full_name}, "
             f"Intake: {self.intake}, Trimester: {self.trimester}"
         )
+
