@@ -25,6 +25,10 @@ class Student:
         self.intake = intake
         self.trimester = trimester
 
+    @staticmethod
+    def generate_id():
+        return random.randint(1000, 9999)
+
     def __str__(self):
         """
         Returns a string representation of the student's information.
