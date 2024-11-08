@@ -28,7 +28,7 @@ while True:
        "[3] Modify a Student"))
         option_selected = int(input("Choose your option (1, 2 or 3): "))
         if option_selected == 1:
-            pass
+            mange_students.view_student_by_id()
         elif option_selected == 2:
             mange_students.view_students()
 
