@@ -23,14 +23,7 @@ The SMS application is a terminal-based system with a user-friendly menu for sel
 3. **Grade Input** - Enter and update student grades.
 4. **CGPA Calculation** - Calculate the student's CGPA based on current grades.
 5. **View Grades** - Display grades for each module and the cumulative CGPA.
-6. **Exit** - Safely exit the application.
-
-### Example User Workflow
-1. **Student Enrollment**: The facilitator enters the student's name, ID, year, and trimester. The system confirms registration or provides an error if required information is missing.
-2. **Manage Student Records**: Facilitators search by student ID or name, view current information, and are prompted to update specific fields if needed.
-3. **Grade Input**: The facilitator selects a student, module, and input scores, with the system verifying grade ranges.
-4. **CGPA Calculation**: Facilitators can view a calculated CGPA based on all grades entered for each student.
-5. **View Grades**: Students can view grades for each module and their cumulative CGPA.  
+6. **Exit** - Safely exit the application.   
 ## References
 - [Student Management System in Python - GeeksforGeeks](https://www.geeksforgeeks.org/student-management-system-in-python/)
 - [Student Management System in Python - Javaguides](https://www.javaguides.net/2024/04/student-management-system-in-python.html)
