@@ -34,3 +34,19 @@ class GradeManagement:
         else:
             print("Student ID not found.")
 
+    def view_grades(self):
+        """
+        View all grades for a specific student by their ID.
+        """
+        student_id = int(input("Enter Student ID to view grades: "))
+        if student_id in self.enrolled_student.students:
+            student = self.enrolled_student.students[student_id]
+            if student.grades:
+                print(f"\nGrades for {student.full_name}:")
+                for module, grade in student.grades.items():
+                    print(f"{module}: {grade}")
+            else:
+                print("No grades available for this student.")
+        else:
+            print("Student ID not found.")
+
