@@ -17,4 +17,6 @@ class StudentEnrollment:
         id = Student.generate_id()
 
         self.students[id] = Student(id, full_name, intake, trimester)
-        print(f"\n---- {fs_name} with ID: {id} is successfully enrolled! ----")
+        print("\n==================================================")
+        print(f"{fs_name} with ID: {id} is successfully enrolled!")
+        print("==================================================")
