@@ -1,0 +1,36 @@
+#!/usr/bin/python3
+"""
+This module defines the GradeManagement class to handle the grading
+system within the school management system.
+"""
+
+
+class GradeManagement:
+    def __init__(self, enrolled_student):
+        """
+        Initialize with an instance of StudentEnrollment to access enrolled students.
+        Args:
+            enrolled_student (StudentEnrollment): An instance of StudentEnrollment
+            for managing students.
+        """
+        self.enrolled_student = enrolled_student
+
+    def add_grade(self):
+        """ This method adds grade for a specific student and module."""
+
+        student_id = int(input("Enter Student ID: "))
+        if student_id in self.enrolled_student.students:
+            student = self.enrolled_student.students[student_id]
+            module = input("Enter module name: ")
+            try:
+                grade = float(input("Enter grade for module (0-100): "))
+                if 0 <= grade <= 100:
+                    student.grades[module] = grade
+                    print(f"\n---- Grade added for {module}. ----")
+                else:
+                    print("Grade must be between 0 and 100.")
+            except ValueError:
+                print("Invalid input. Please enter a numeric grade.")
+        else:
+            print("Student ID not found.")
+
