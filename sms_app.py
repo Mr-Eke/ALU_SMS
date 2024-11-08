@@ -8,8 +8,7 @@ new_student = StudentEnrollment()
 mange_students = ManageStudentsRecord(new_student)
 
 while True:
-    print("\n-----------------------------------------")
-    print("\tSCHOOL MANAGEMENT SYSTEM")
+    print("\n\tSCHOOL MANAGEMENT SYSTEM")
     print("-----------------------------------------\n")
 
     print("1. Student Enrollment")
@@ -17,7 +16,7 @@ while True:
     print("3. Student Grade Input")
     print("4. CGPA Calculation")
     print("5. View Student Grades")
-    print("6. Exit\n\n-----------------------------------------")
+    print("6. Exit\n")
 
     selected_menu = int(input("Choose a menu: "))
 
@@ -34,5 +33,6 @@ while True:
             mange_students.view_students()
 
     if selected_menu == 6:
-        sys.exit()
+        exit_option = input("are you sure you want to exit (yes/no): ").lower()
+        sys.exit() if exit_option == "yes" else ""
 
