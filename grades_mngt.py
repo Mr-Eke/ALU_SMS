@@ -13,6 +13,15 @@ class Student:
         self.trimester = trimester
         self.grades = {}
 
+class Assignment:
+    def __init__(self, name, assig_type, score, weight):
+        self.name = name
+        self.assig_type = assig_type
+        self.score = score
+        self.weight = weight
+
+    def get_weighted_score(self):
+        return (self.score / 100) * self.weight
 class GradeManagement:
     def __init__(self, enrolled_student):
         """
