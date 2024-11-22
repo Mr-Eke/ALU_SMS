@@ -1,0 +1,16 @@
+{
+    "1": {
+        "student_id": 1,
+        "full_name": "chiagoziem Eke",
+        "intake": "3035",
+        "trimester": "T5",
+        "grades": {}
+    },
+    "2": {
+        "student_id": 2,
+        "full_name": "Chiagoziem Eke",
+        "intake": "2025J",
+        "trimester": "T5",
+        "grades": {}
+    }
+}
