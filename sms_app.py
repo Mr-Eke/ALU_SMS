@@ -1,48 +1,33 @@
 #!/usr/bin/python3
 import sys
-from student import Student
-from assignment import GradeManagement
-from enrollment import StudentEnrollment
-from student_mngt import ManageStudentsRecord
+from models.student import Student
+from models.assignment import Assignment
+from models.student_mngt import SchoolManagementSystem
 
-new_student = StudentEnrollment()
-grade_student = GradeManagement(new_student)
-mange_students = ManageStudentsRecord(new_student)
+def main():
+    system = SchoolManagementSystem()
+    while True:
+        print("\n\tSCHOOL MANAGEMENT SYSTEM")
+        print("-----------------------------------------\n")
+        print("1. Student Enrollment\n2. Add Assignment")
+        print("3. Calculate Grade\n4. View Students")
+        print("4. CGPA Calculation")
+        print("5. Exit\n")
+        choice = input("Choose an option: ")
+        if choice == "1":
+            system.enroll_student()
+        elif choice == "2":
+            system.add_assignment()
+        elif choice == "3":
+            student_id = int(input("Enter student ID: "))
+            system.calculate_overall_score(student_id)
+        elif choice == "4":
+            system.view_student_records()
+        elif choice == "5":
+            exit_option = input("are you sure you want to exit (yes/no): ").lower()
+            sys.exit() if exit_option == "yes" else ""
+        else:
+            print("Invalid choice. Please try again.")
 
-while True:
-    print("\n\tSCHOOL MANAGEMENT SYSTEM")
-    print("-----------------------------------------\n")
-
-    print("1. Student Enrollment")
-    print("2. Manage Student Records")
-    print("3. Grade Management")
-    print("4. CGPA Calculation")
-    print("5. Exit\n")
-
-    selected_menu = int(input("Choose a menu: "))
-
-    if selected_menu == 1:
-        new_student.enroll_student()
-    elif selected_menu == 2:
-        print(("[1] View a specific Student "
-       "[2] View all Students "
-       "[3] Modify a Student"))
-        option_selected = int(input("Choose your option (1, 2 or 3): "))
-        if option_selected == 1:
-            mange_students.view_student_by_id()
-        elif option_selected == 2:
-            mange_students.view_students()
-        elif option_selected == 3:
-            mange_students.modify_student_record()
-
-    elif selected_menu == 3:
-        grade_option = int(input("Enter 1 to add grades or 2 to view grades: "))
-        if grade_option == 1:
-            grade_student.add_grade()
-        elif grade_option == 2:
-            grade_student.view_grades()
-
-    if selected_menu == 6:
-        exit_option = input("are you sure you want to exit (yes/no): ").lower()
-        sys.exit() if exit_option == "yes" else ""
-
+if __name__ == "__main__":
+    main()
