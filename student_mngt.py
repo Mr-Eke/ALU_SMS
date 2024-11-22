@@ -18,6 +18,8 @@ class SchoolManagementSystem:
             student_data[k] = v.to_dict()
         save_data(student_data, STUDENTS_FILE)
 
+    def save_assignments(self):
+        save_data(self.assignments, ASSIGNMENTS_FILE)
 
     def enroll_student(self):
         full_name = input("\nEnter full name: ")
