@@ -60,5 +60,9 @@ class SchoolManagementSystem:
             "weight": weight,
             "weighted_score": assignment.get_weighted_score()
         }
-        print(f"\n'{name}' assignment is added to {student.full_name}'s record.")
+        added_assign = f"'{name}' assignment is added to {student.full_name}'s record."
+        print()
+        print(len(added_assign) * '-')
+        print(added_assign)
+        print(len(added_assign) * '-')
         self.save_students()

@@ -4,13 +4,39 @@
         "full_name": "chiagoziem Eke",
         "intake": "3035",
         "trimester": "T5",
-        "grades": {}
+        "grades": {
+            "intro_to_linux": {
+                "type": "Formative",
+                "score": 66.0,
+                "weight": 40.0,
+                "weighted_score": 26.400000000000002
+            },
+            "rrrr": {
+                "type": "Formative",
+                "score": 66.0,
+                "weight": 5.0,
+                "weighted_score": 3.3000000000000003
+            }
+        }
     },
     "2": {
         "student_id": 2,
         "full_name": "Chiagoziem Eke",
         "intake": "2025J",
         "trimester": "T5",
-        "grades": {}
+        "grades": {
+            "Individual lab": {
+                "type": "Summative",
+                "score": 66.0,
+                "weight": 40.0,
+                "weighted_score": 26.400000000000002
+            },
+            "ddddd": {
+                "type": "Summative",
+                "score": 55.0,
+                "weight": 4.0,
+                "weighted_score": 2.2
+            }
+        }
     }
 }
