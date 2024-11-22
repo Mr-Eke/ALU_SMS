@@ -19,6 +19,10 @@ def load_data(file_name):
     except json.JSONDecodeError:
         return {}
 
+# saves data to JSON files
+def save_data(data, file_name):
+    with open(file_name, 'w') as file:
+        json.dump(data, file, indent=4)
 class Student:
     def __init__(self, student_id, full_name, intake, trimester):
         self.student_id = student_id
