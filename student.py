@@ -24,3 +24,23 @@ class Student:
         self.trimester = trimester
         self.grades = {}
 
+    def to_dict(self):
+        return {
+            "student_id": self.student_id,
+            "full_name": self.full_name,
+            "intake": self.intake,
+            "trimester": self.trimester,
+            "grades": self.grades
+        }
+
+    @staticmethod
+    def from_dict(data):
+        student = Student(
+            data["student_id"],
+            data["full_name"],
+            data["intake"],
+            data["trimester"]
+        )
+        student.grades = data.get("grades", {})
+        return student
+
