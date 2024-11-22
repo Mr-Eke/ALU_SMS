@@ -1,8 +1,4 @@
 #!/usr/bin/python3
-"""
-This module defines the GradeManagement class to handle the grading
-system within the school management system.
-"""
 import json
 
 # Data files for storage

@@ -2,7 +2,7 @@
 import sys
 from models.student import Student
 from models.assignment import Assignment
-from models.student_mngt import SchoolManagementSystem
+from models.school_mngt import SchoolManagementSystem
 
 def main():
     system_manager = SchoolManagementSystem()
@@ -11,8 +11,8 @@ def main():
         print("-----------------------------------------\n")
         print("1. Student Enrollment\n2. Add Assignment")
         print("3. Calculate Grade\n4. View Students")
-        print("4. CGPA Calculation")
-        print("5. Exit\n")
+        print("5. CGPA Calculation")
+        print("6. Exit\n")
         choice = input("Choose an option: ")
         if choice == "1":
             system_manager.enroll_student()
