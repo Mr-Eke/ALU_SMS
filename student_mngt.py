@@ -1,17 +1,15 @@
 #!/usr/bin/python3
 
-from enrollment import StudentEnrollment
-
 class ManageStudentsRecord:
     def __init__(self, enrolled_student):
-        self.enrolled_student =  enrolled_student
-    def view_students(self):
+        self.enrolled_student = enrolled_student
 
-        print("\n===============================================================")
-        print("\tList of Enrolled Students\n-----------------------------------------")
+    def view_students(self):
+        print("\n==================================================================\n")
+        print("\t\tList of Enrolled Students\n\t-----------------------------------------")
         for student_attr in self.enrolled_student.students.values():
             print(student_attr)
-        print("===============================================================")
+        print("==================================================================")
 
     def view_student_by_id(self):
         id_input = int(input("Enter student ID: "))
@@ -27,7 +25,6 @@ class ManageStudentsRecord:
         student_id = int(input("Enter Student ID: "))
         if student_id in self.enrolled_student.students:
             selected_student = self.enrolled_student.students[student_id]
-            print(f"Current record: {selected_student}")
 
             print("Choose what to update:")
             print("[1] Name")

@@ -5,6 +5,14 @@ system within the school management system.
 """
 
 
+class Student:
+    def __init__(self, student_id, full_name, intake, trimester):
+        self.student_id = student_id
+        self.full_name = full_name
+        self.intake = intake
+        self.trimester = trimester
+        self.grades = {}
+
 class GradeManagement:
     def __init__(self, enrolled_student):
         """

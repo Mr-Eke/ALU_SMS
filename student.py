@@ -20,6 +20,7 @@ class Student:
     def __init__(self, student_id, full_name, intake, trimester):
         """Initializes a new Student instance with the above attributes."""
 
+        self.grades = {}
         self.student_id = student_id
         self.full_name = full_name
         self.intake = intake

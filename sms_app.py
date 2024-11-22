@@ -17,8 +17,7 @@ while True:
     print("2. Manage Student Records")
     print("3. Grade Management")
     print("4. CGPA Calculation")
-    print("5. View Student Grades")
-    print("6. Exit\n")
+    print("5. Exit\n")
 
     selected_menu = int(input("Choose a menu: "))
 
@@ -35,10 +34,13 @@ while True:
             mange_students.view_students()
         elif option_selected == 3:
             mange_students.modify_student_record()
+
     elif selected_menu == 3:
         grade_option = int(input("Enter 1 to add grades or 2 to view grades: "))
         if grade_option == 1:
             grade_student.add_grade()
+        elif grade_option == 2:
+            grade_student.view_grades()
 
     if selected_menu == 6:
         exit_option = input("are you sure you want to exit (yes/no): ").lower()
