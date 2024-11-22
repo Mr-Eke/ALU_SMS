@@ -1,10 +1,23 @@
 #!/usr/bin/python3
-
+import json
 from student import Student
+from assignment import Assignment
+from assignment import load_data, save_data
+
+# Data files for storage
+STUDENTS_FILE = "students.json"
+ASSIGNMENTS_FILE = "assignments.json"
 
 class SchoolManagementSystem:
     def __init__(self):
         pass
+
+    def save_students(self):
+        student_data = {}
+        for k, v in self.students.items():
+            student_data[k] = v.to_dict()
+        save_data(student_data, STUDENTS_FILE)
+
 
     def enroll_student(self):
         full_name = input("\nEnter full name: ")
