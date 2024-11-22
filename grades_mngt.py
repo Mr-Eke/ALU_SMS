@@ -3,7 +3,21 @@
 This module defines the GradeManagement class to handle the grading
 system within the school management system.
 """
+import json
 
+# Data files for storage
+STUDENTS_FILE = "students.json"
+ASSIGNMENTS_FILE = "assignments.json"
+
+# Helper function: helps load data from JSON files
+def load_data(file_name):
+    try:
+        with open(file_name, 'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return {}
+    except json.JSONDecodeError:
+        return {}
 
 class Student:
     def __init__(self, student_id, full_name, intake, trimester):
