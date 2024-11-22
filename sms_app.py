@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import sys
 from student import Student
-from grades_mngt import GradeManagement
+from assignment import GradeManagement
 from enrollment import StudentEnrollment
 from student_mngt import ManageStudentsRecord
 
