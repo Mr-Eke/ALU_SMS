@@ -10,7 +10,18 @@ ASSIGNMENTS_FILE = "assignments.json"
 
 class SchoolManagementSystem:
     def __init__(self):
-        pass
+        student_data = load_data(STUDENTS_FILE)
+        self.students = {}
+
+    # Iterate over each student in the loaded data and convert to Student objects
+        for k, v in student_data.items():
+            student_id = int(k)
+            student = Student.from_dict(v)
+            self.students[student_id] = student
+
+        # Load assignment data from the file
+        self.assignments = load_data(ASSIGNMENTS_FILE)
+
 
     def save_students(self):
         student_data = {}
