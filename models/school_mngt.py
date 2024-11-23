@@ -129,8 +129,6 @@ class SchoolManagementSystem:
         print(f"Total SA Score is {round(total_SA, 2)}%" + (" and it's below 20%" if total_SA < 20 else ''))
         print(f"\nFinal Grade for {student.full_name}: {self.total_score:.2f}%")
 
-
-
         # Determine course progression
         if self.total_score < 50 or total_FA < 30 or total_SA < 20:
             print("=== Failed and must retake the course ===")
@@ -148,19 +146,23 @@ class SchoolManagementSystem:
         else:
             return
 
+
     def get_cgpa(self, stud_id):
         if stud_id not in self.students:
             print("Student ID not found.")
             return
 
-        totals, cgpa, = 0, 0
         stud = self.students[stud_id]
 
-        for stud_grade in stud.grades.values():
-            weighted_score = stud_grade["weighted_score"]
-            totals += weighted_score
+        # Calculate total weighted scores
+        totals = sum(grade["weighted_score"] for grade in stud.grades.values())
         cgpa = (totals / 100) * 5
-        print(f"CGPA: for {stud["full_name"]}: {cgpa}/5")
+        cgpa_ = f"CGPA for {stud.full_name}: {cgpa:.2f}/5"
+
+        print("\n" + len(cgpa_) * "=")
+        print(cgpa_)
+        print(len(cgpa_) * "=")
+
 
     def create_transcript(self, student_id, asc=True):
         """ Generates a transcript of all assignments for a specific student,

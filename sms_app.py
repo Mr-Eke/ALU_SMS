@@ -11,18 +11,22 @@ def main():
         print("-----------------------------------------\n")
         print("1. Student Enrollment\n2. Add Assignment")
         print("3. Calculate Grade\n4. View Students")
-        print("5. CGPA Calculation")
-        print("6. Exit\n")
+        print("5. CGPA Calculation\n6. Exit\n")
+
         choice = input("Choose an option: ")
+
         if choice == "1":
             system_manager.enroll_student()
         elif choice == "2":
             system_manager.add_assignment()
         elif choice == "3":
-            student_id = int(input("Enter student ID: "))
+            student_id = int(input("Enter the student's ID: "))
             system_manager.calculate_overall_score(student_id)
         elif choice == "4":
             system_manager.view_student_records()
+        elif choice == "5":
+            stud_id = int(input("Enter the student's ID: "))
+            system_manager.get_cgpa(stud_id)
         elif choice == "6":
             exit_option = input("are you sure you want to exit (yes/no): ").lower()
             sys.exit() if exit_option == "yes" else ""
