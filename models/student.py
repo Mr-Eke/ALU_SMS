@@ -1,14 +1,10 @@
 #!/usr/bin/python3
+""" This module defines the Student class used for managing
+s   tudent information in a school management system.
 """
-This module defines the Student class used for managing student
-information in a school management system.
-"""
-
 
 class Student:
-    """
-    A class to represent a student
-
+    """ A class to represent a student
     Attributes:
         student_id (int): The unique identifier for the student.
         full_name (str): The full name of the student.

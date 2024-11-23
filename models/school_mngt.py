@@ -59,9 +59,11 @@ class SchoolManagementSystem:
         student_id = len(self.students) + 1  # Generate a new student ID
         student = Student(student_id, full_name, intake, trimester)
         self.students[student_id] = student
-        print("\n==================================================")
-        print(f"{full_name} with ID: {student_id} is successfully enrolled")
-        print("==================================================")
+
+        x = f"{full_name} with ID: {student_id} is successfully enrolled"
+        print("\n" + len(x) * "=")
+        print(x)
+        print(len(x) * "=")
         self.save_students()  # Save updated student data
 
     def add_assignment(self):
@@ -91,8 +93,7 @@ class SchoolManagementSystem:
 
         # Display confirmation message
         added_assign = f"'{name}' assignment is added to {student.full_name}'s record."
-        print()
-        print(len(added_assign) * '-')
+        print("\n" + len(added_assign) * '-')
         print(added_assign)
         print(len(added_assign) * '-')
         self.save_students()  # Save updated student data
@@ -136,13 +137,16 @@ class SchoolManagementSystem:
         total_score = total_FA + total_SA
 
         # Display the student's final grade and status
+        print(f"\nTotal Score (FA): {round(total_FA, 2)}")
+        SA = f"Total Score (SA): {round(total_SA, 2)}"
+        print(SA + "\n" + "-" * len(SA))
         print(f"\nFinal Grade for {student.full_name}: {total_score:.2f}%")
 
         # Determine course progression
         if total_score < 50 or total_FA < 30 or total_SA < 20:
-            print("== You Failed and must retake the course")
+            print("=== Failed and must retake the course ===")
         else:
-            print("Congrats, you've passed and Progressed.")
+            print("=== Congrats, Passed and have Progressed ===.")
 
     def view_student_records(self):
         """ Displays all enrolled student records in a tabular format.
@@ -159,7 +163,7 @@ class SchoolManagementSystem:
 
             # Prepare data for display in a tabular format
             table_data = []
-            
+
             for student_id, student_info in students.items():
                 table_data.append([
                     student_id,
@@ -173,6 +177,7 @@ class SchoolManagementSystem:
             # Print the table using the tabulate library
             from tabulate import tabulate
 
+            print("\n" + "\tList of all the enrolled students:")
             print(tabulate(table_data, headers=headers, tablefmt="pretty"))
         except FileNotFoundError:
             print("No data found. Please enroll a student first.")

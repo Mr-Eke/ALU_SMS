@@ -23,7 +23,7 @@ def main():
             system_manager.calculate_overall_score(student_id)
         elif choice == "4":
             system_manager.view_student_records()
-        elif choice == "5":
+        elif choice == "6":
             exit_option = input("are you sure you want to exit (yes/no): ").lower()
             sys.exit() if exit_option == "yes" else ""
         else:

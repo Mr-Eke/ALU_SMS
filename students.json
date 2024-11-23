@@ -38,5 +38,12 @@
                 "weighted_score": 2.2
             }
         }
+    },
+    "3": {
+        "student_id": 3,
+        "full_name": "Levison HonourGod",
+        "intake": "2024M",
+        "trimester": "T2",
+        "grades": {}
     }
 }
