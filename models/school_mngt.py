@@ -96,3 +96,51 @@ class SchoolManagementSystem:
         print(added_assign)
         print(len(added_assign) * '-')
         self.save_students()  # Save updated student data
+
+    def calculate_overall_score(self, student_id):
+        """ Calculates and displays the overall score for a student based on
+            their assignments.
+
+        Considers Formative (FA) and Summative (SA) assignment types,
+        ensuring their respective weight limits are adhered to:
+        - Formative assignments can have a total weight of up to 60.
+        - Summative assignments can have a total weight of up to 40.
+        Args:
+            student_id (int): Student ID whose overall score is being calculated.
+        """
+        if student_id not in self.students:
+            print("Student ID not found.")
+            return
+
+        # Retrieve the student object
+        student = self.students[student_id]
+
+        total_FA = 0
+        total_FA_weight = 0
+        total_SA = 0
+        total_SA_weight = 0
+
+        # Iterate through the student's grades to calculate totals
+        for grade in student.grades.values():
+            weighted_score = grade["weighted_score"]  # Retrieve Assign weighted score
+            if grade["type"] == "Formative":
+                total_FA_weight += grade["weight"]
+                if total_FA_weight <= 60:
+                    total_FA += weighted_score
+            elif grade["type"] == "Summative":
+                total_SA_weight += grade["weight"]
+                if total_SA_weight <= 40:
+                    total_SA += weighted_score
+
+        # Overall score (can be final grade)
+        total_score = total_FA + total_SA
+
+        # Display the student's final grade and status
+        print(f"\nFinal Grade for {student.full_name}: {total_score:.2f}%")
+
+        # Determine course progression
+        if total_score < 50 or total_FA < 30 or total_SA < 20:
+            print("== You Failed and must retake the course")
+        else:
+            print("Congrats, you've passed and Progressed.")
+
