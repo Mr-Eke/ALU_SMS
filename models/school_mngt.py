@@ -182,13 +182,18 @@ class SchoolManagementSystem:
         except FileNotFoundError:
             print("No data found. Please enroll a student first.")
 
-
-    def create_transcript(self, ascending=True):
-        
+    def create_transcript(self, asc=True):
+        """ Generates a transcript of all assignments sorted by score.
+        Args:
+            asc (bool): If True, sorts by asc order; otherwise, descending."""
         def score_to_sort(assignment):
             return assignment.score
 
         # Sort assignments based on the chosen order
         sorted_assignments = sorted(
-            self.assignment_list, key=score_to_sort, reverse=not ascending
+            self.assignment_list, key=score_to_sort, reverse=not asc
         )
+
+        fields = f"{'Assignment'.ljust(45)}{'Type'.ljust(15)}{'Score(%)'.ljust(10)}{'Weight(%)'.ljust(10)}"
+        print(fields)
+        print("-" * len(fields))
