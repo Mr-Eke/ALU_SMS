@@ -17,6 +17,8 @@ def save_data(data, file_name):
         json.dump(data, file, indent=4)
 
 class Assignment:
+    """Defines an assignment
+    """
     def __init__(self, name, assig_type, score, weight):
         self.name = name
         self.assig_type = assig_type
