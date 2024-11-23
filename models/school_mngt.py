@@ -144,3 +144,35 @@ class SchoolManagementSystem:
         else:
             print("Congrats, you've passed and Progressed.")
 
+    def view_student_records(self):
+        """ Displays all enrolled student records in a tabular format.
+
+        Reads student data from the JSON file and organizes it into a table
+        with columns for ID, Name, Trimester, and Intake. """
+        try:
+            # Open and load student data from the JSON file
+            with open(STUDENTS_FILE, "r") as file:
+                students = json.load(file)
+            if not students: # Empty Dict
+                print("No students enrolled yet.")
+                return
+
+            # Prepare data for display in a tabular format
+            table_data = []
+            
+            for student_id, student_info in students.items():
+                table_data.append([
+                    student_id,
+                    student_info["full_name"],
+                    student_info["trimester"],
+                    student_info["intake"],
+                ])
+
+            headers = ["ID", "Name", "Trimester", "Intake"]
+
+            # Print the table using the tabulate library
+            from tabulate import tabulate
+
+            print(tabulate(table_data, headers=headers, tablefmt="pretty"))
+        except FileNotFoundError:
+            print("No data found. Please enroll a student first.")
