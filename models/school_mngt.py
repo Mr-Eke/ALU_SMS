@@ -137,8 +137,8 @@ class SchoolManagementSystem:
         total_score = total_FA + total_SA
 
         # Display the student's final grade and status
-        print(f"\nTotal Score (FA): {round(total_FA, 2)}")
-        SA = f"Total Score (SA): {round(total_SA, 2)}"
+        print(f"\nTotal FA Score: {round(total_FA, 2)}%" + (" and it's below 30%" if total_FA < 30 else ''))
+        SA = f"Total SA Score: {round(total_SA, 2)}%" + (" and it's below 20%" if total_SA < 20 else '')
         print(SA + "\n" + "-" * len(SA))
         print(f"\nFinal Grade for {student.full_name}: {total_score:.2f}%")
 
@@ -181,3 +181,14 @@ class SchoolManagementSystem:
             print(tabulate(table_data, headers=headers, tablefmt="pretty"))
         except FileNotFoundError:
             print("No data found. Please enroll a student first.")
+
+
+    def create_transcript(self, ascending=True):
+        
+        def score_to_sort(assignment):
+            return assignment.score
+
+        # Sort assignments based on the chosen order
+        sorted_assignments = sorted(
+            self.assignment_list, key=score_to_sort, reverse=not ascending
+        )
