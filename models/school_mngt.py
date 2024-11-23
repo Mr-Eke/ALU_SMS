@@ -8,9 +8,8 @@ import json
 from models.student import Student
 from models.assignment import Assignment, load_data, save_data
 
-# Constants for data file paths
+# Path to file data storage
 STUDENTS_FILE = "students.json"
-ASSIGNMENTS_FILE = "assignments.json"
 
 class SchoolManagementSystem:
     """ A class to manage student enrollment and assignment tracking.
@@ -30,9 +29,6 @@ class SchoolManagementSystem:
             student = Student.from_dict(value)  # Create Student object from dictionary
             self.students[student_id] = student
 
-        # Load assignment data
-        self.assignments = load_data(ASSIGNMENTS_FILE)
-
 
     def save_students(self):
         """ Saves the current student data to the students JSON file.
@@ -40,11 +36,6 @@ class SchoolManagementSystem:
         # Convert Student objects to dictionary format for JSON serialization
         student_data = {key: val.to_dict() for key, val in self.students.items()}
         save_data(student_data, STUDENTS_FILE)
-
-
-    def save_assignments(self):
-        """ Saves the current assignment data to the assignments JSON file."""
-        save_data(self.assignments, ASSIGNMENTS_FILE)
 
 
     def enroll_student(self):
@@ -228,8 +219,7 @@ class SchoolManagementSystem:
 
             # Print the table using the tabulate library
             from tabulate import tabulate
-
-            print("\n" + "\tList of all the enrolled students:")
+            print("\n" + "\tList of all enrolled students:")
             print(tabulate(table_data, headers=headers, tablefmt="pretty"))
 
         except FileNotFoundError:
