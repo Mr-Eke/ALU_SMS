@@ -197,3 +197,10 @@ class SchoolManagementSystem:
         fields = f"{'Assignment'.ljust(45)}{'Type'.ljust(15)}{'Score(%)'.ljust(10)}{'Weight(%)'.ljust(10)}"
         print(fields)
         print("-" * len(fields))
+        for assignment in sorted_assignments:
+            name = assignment.name.ljust(45)
+            assig_type = assignment.assig_type.ljust(15)
+            score = f"{assignment.score}".ljust(10)
+            weight = f"{assignment.weight}".ljust(10)
+            print(f"{name}{assig_type}{score}{weight}")
+        print("-" * len(fields))
